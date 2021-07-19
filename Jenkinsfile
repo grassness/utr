@@ -4,7 +4,7 @@ pipeline {
         pollSCM '* * * * *'
     }
     tool {
-        maven 'maven'
+        maven 'M2_HOME'
     }
     stages {
         stage('build'){
