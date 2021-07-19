@@ -7,13 +7,15 @@ pipeline {
         maven 'M2_HOME'
     }
     stages {
-        stage('build') {
+        stage ('build') {
             steps{
                 sh 'mvn clean'
                 sh 'mvn install'
                 sh 'mvn package'
             }    
-        stage('tomcat deploy'){
+        stage ('tomcat deploy') {
 	    steps {
-	      deploy adapters: [tomcat8(credentialsId: "TomcatID", path: "", url: "http://192.168.42.25:8080/")],
-        }
+	        deploy adapters: [tomcat8(credentialsId: "TomcatID", path: "", url: "http://192.168.42.25:8080/")],
+	    }
+	    
+            
