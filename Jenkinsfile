@@ -1,4 +1,5 @@
- agent any
+ pipeline {
+    agent any
     triggers {
         pollSCM '* * * * *'
     }
@@ -12,11 +13,6 @@
                 sh 'mvn install'
                 sh 'mvn package'
 
-            }
-
-        stage ('tomcat deploy') {
-            steps {
-                deploy adapters: [tomcat8(credentialsId: "TomcatID", path: "", url: "http://192.168.42.25:8080/")],
             }
         }
     }
